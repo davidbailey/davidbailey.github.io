@@ -8,7 +8,7 @@
     if (this.readyState == 4 && this.status == 200) {
       var csv = request.responseText;
       var data = $.csv.toObjects(csv);
-      var html = '<th><td>Song</td>Artist<td></td></th>';
+      var html = '<tr><th>Song</th><th>Artist</th></tr>';
       for(var row in data) {
         html += '<tr>\r\n';
         html += '<td><a href="' + data[row]['YouTube Link'] + '" target="_blank">' + data[row]['Song'] + '</a></td><td>' + data[row]['Artist'] + '</td>\r\n';
