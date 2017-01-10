@@ -6,6 +6,7 @@ Type
 <input type="button" value="Car" id="Car">
 <input type="button" value="Truck" id="Truck">
 <input type="button" value="Bus" id="Bus">
+<input type="button" value="Dog" id="Dog">
 <br>Origin
 <input type="button" value="North" id="North">
 <input type="button" value="South" id="South">
@@ -19,7 +20,7 @@ Type
 <hr>
 <div id="csv">Date,Type,Origin,Destination</div>
  <script type="text/javascript">  
-  types = ["Pedestrian","Bicycle","Car","Truck","Bus"]
+  types = ["Pedestrian","Bicycle","Car","Truck","Bus","Dog"]
   function resetTypeColors() {
     for (i = 0; i < types.length; i++) {
       document.getElementById(types[i]).style.background='#FFFFFF';
