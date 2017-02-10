@@ -1,0 +1,33 @@
+<html>
+<h1>Rail Designer</h1>
+Cant (inches): <input type="number" value="4" id="Cant">
+Cant Deficiency (inches): <input type="number" value="7" id="CantDeficiency">
+Degree of Curvature (degrees): <input type="number" value="3" id="DegreeOfCurvature">
+Radius (feet): <input type="number" value="" id="RadiusFeet">
+Radius (meters): <input type="number" value="" id="RadiusMeters">
+Velocity (MPH): <input type="number" value="" id="Velocity">
+<script type="text/javascript">
+  function SolveForVelocity() {
+    var Cant = parseFloat(document.getElementById('Cant').value);
+    var CantDeficiency = parseFloat(document.getElementById('CantDeficiency').value);
+    var DegreeOfCurvature = parseFloat(document.getElementById('DegreeOfCurvature').value);
+    var Velocity = Math.sqrt((Cant + CantDeficiency) / (0.0007 * DegreeOfCurvature));
+    document.getElementById('Velocity').value = Velocity;
+  }
+  function SolveForRadius() {
+    var DegreeOfCurvature = parseFloat(document.getElementById('DegreeOfCurvature').value);
+    var RadiusFeet = (180 * 100) / (Math.PI * DegreeOfCurvature);
+    document.getElementById('RadiusFeet').value = RadiusFeet;
+    document.getElementById('RadiusMeters').value = RadiusFeet / 3.281;
+  }
+document.getElementById('Cant').addEventListener('change',SolveForVelocity,false);
+document.getElementById('CantDeficiency').addEventListener('change',SolveForVelocity,false);
+document.getElementById('DegreeOfCurvature').addEventListener('change',SolveForVelocity,false);
+document.getElementById('DegreeOfCurvature').addEventListener('change',SolveForRadius,false);
+
+SolveForVelocity()
+SolveForRadius()
+</script>
+
+</html>
+
